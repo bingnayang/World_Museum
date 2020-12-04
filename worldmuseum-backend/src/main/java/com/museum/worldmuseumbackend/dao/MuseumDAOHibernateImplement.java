@@ -24,7 +24,6 @@ public class MuseumDAOHibernateImplement implements MuseumDAO {
 	}
 	
 	@Override
-	@Transactional // Handles transaction management so we don't have to manually start and commit transaction
 	public List<Museum> findAll() {
 		// Get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
