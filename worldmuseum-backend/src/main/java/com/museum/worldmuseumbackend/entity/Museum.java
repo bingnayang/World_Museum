@@ -17,29 +17,29 @@ public class Museum {
 	private int id;
 	
 	@Column(name="name")
-	private int name;
+	private String name;
 	
 	@Column(name="address")
-	private int address;
+	private String address;
 	
 	@Column(name="country")
-	private int country;
+	private String country;
 	
 	@Column(name="website")
-	private int website;
+	private String website;
 	
-	@Column(name="imageLink")
-	private int imageLink;
+	@Column(name="image_link")
+	private String image_link;
 	
 	// Define Constructors
 	public Museum() {}
 
-	public Museum(int name, int address, int country, int website, int imageLink) {
+	public Museum(String name, String address, String country, String website, String image_link) {
 		this.name = name;
 		this.address = address;
 		this.country = country;
 		this.website = website;
-		this.imageLink = imageLink;
+		this.image_link = image_link;
 	}
 
 	// Define Getter/Setter
@@ -51,47 +51,45 @@ public class Museum {
 		this.id = id;
 	}
 
-	public int getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public int getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(int address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	public int getCountry() {
+	public String getCountry() {
 		return country;
 	}
 
-	public void setCountry(int country) {
+	public void setCountry(String country) {
 		this.country = country;
 	}
 
-	public int getWebsite() {
+	public String getWebsite() {
 		return website;
 	}
 
-	public void setWebsite(int website) {
+	public void setWebsite(String website) {
 		this.website = website;
 	}
 
-	public int getImageLink() {
-		return imageLink;
+	public String getImage_link() {
+		return image_link;
 	}
 
-	public void setImageLink(int imageLink) {
-		this.imageLink = imageLink;
+	public void setImage_link(String image_link) {
+		this.image_link = image_link;
 	}
-	
-	
-	
+
 
 }
