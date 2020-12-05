@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MuseumListComponent } from './museum-list/museum-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateMuseumComponent } from './create-museum/create-museum.component';
  
 @NgModule({
   declarations: [
     AppComponent,
-    MuseumListComponent
+    MuseumListComponent,
+    CreateMuseumComponent
   ],
   imports: [
     BrowserModule,

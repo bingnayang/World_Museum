@@ -9,12 +9,12 @@
         <a class="nav-link text-light" routerLink="museums" routerLinkActive="active">[ Home ]</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-light" href="#">[ Add New Museum ]</a>
+        <a class="nav-link text-light" routerLink="create-museum" routerLinkActive="active">[ Add New Museum ]</a>
       </li>
     </ul>
   </div>
 </nav>
 
 <div class="container">
-  <app-museum-list></app-museum-list>
+  <router-outlet></router-outlet>
 </div>
