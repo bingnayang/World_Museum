@@ -1,0 +1,12 @@
+.card{
+    border: none;
+}
+.card-body {
+    background-color: #1F3944;
+    display: flex;
+    flex-direction: column;
+}
+
+button.btn {
+    margin-top: auto;
+}

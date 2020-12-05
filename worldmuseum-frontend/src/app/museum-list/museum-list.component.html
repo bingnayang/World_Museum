@@ -1,0 +1,24 @@
+<div class="jumbotron text-center" style="background-color:#e9ecef;">
+    <h2 class="display-4">Welcome to World Museum</h2>
+    <p class="lead">Museums around the world</p>
+    <button type="button" class="btn btn-lg text-light" style="background-color: #1F3944;">Add New Museum</button>
+</div>
+
+<div class="row equal">
+    <div *ngFor="let museum of museums" class="col-sm-4 d-flex pb-3">
+        <div class="card h-100">
+            <img src="{{ museum.image_link }}" class="card-img-top" alt="image">
+            <div class="card-body text-light">
+                <h4 class="card-title text-info text-center">{{ museum.name }}</h4>
+                <p class="card-text">
+                    <b>Website:</b> <a href="{{ museum.website }}" style="color: #e9ecef;"> {{ museum.website }}</a>
+                </p>
+                <p class="card-text">
+                    <b>Location:</b> {{ museum.country }}
+                </p>
+                <button type="button" class="btn" style="background-color: #e9ecef;">View Detail</button>
+            </div>
+        </div>
+    </div>
+</div>
+
