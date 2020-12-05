@@ -40,4 +40,38 @@ public class MuseumDAOHibernateImplement implements MuseumDAO {
 		
 	}
 
+	@Override
+	public void save(Museum theMuseum) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Save museum
+		currentSession.saveOrUpdate(theMuseum);
+		
+	}
+
+	@Override
+	public void deleteById(int id) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Delete object with id
+		Query theQuery = currentSession.createQuery("delete from Museum where id=:museumId");
+		theQuery.setParameter("museumId",id);
+		theQuery.executeUpdate();
+		
+	}
+
+	@Override
+	public Museum findById(int id) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Get the museum
+		Museum theMuseum = currentSession.get(Museum.class, id);
+		
+		// Return the museum
+		return theMuseum;
+	}
+
 }

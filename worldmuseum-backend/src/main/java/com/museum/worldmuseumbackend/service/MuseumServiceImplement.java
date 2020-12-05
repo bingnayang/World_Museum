@@ -25,4 +25,24 @@ public class MuseumServiceImplement implements MuseumService {
 		return museumDAO.findAll();
 	}
 
+	@Override
+	@Transactional
+	public void save(Museum theMuseum) {
+		museumDAO.save(theMuseum);
+		
+	}
+
+	@Override
+	@Transactional
+	public void deleteById(int id) {
+		museumDAO.deleteById(id);
+		
+	}
+
+	@Override
+	@Transactional
+	public Museum findById(int id) {
+		return museumDAO.findById(id);
+	}
+
 }
