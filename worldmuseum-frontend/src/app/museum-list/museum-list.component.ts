@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Museum } from '../museum';
 import { MuseumService } from '../museum.service';
  
@@ -11,7 +12,7 @@ export class MuseumListComponent implements OnInit {
   // Create a property called museum
   museums: Museum[];
 
-  constructor(private museumService: MuseumService) { }
+  constructor(private museumService: MuseumService, private router: Router) { }
 
   ngOnInit(): void {
     this.getMuseumList();
@@ -26,4 +27,7 @@ export class MuseumListComponent implements OnInit {
     })
   }
 
+  newMuseum(){
+    this.router.navigate(['/create-museum']);
+  }
 }
