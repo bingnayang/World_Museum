@@ -30,4 +30,9 @@ export class MuseumListComponent implements OnInit {
   newMuseum(){
     this.router.navigate(['/create-museum']);
   }
+
+  viewMuseumDetail(id: number){
+    this.router.navigate(['view-detail-museum',id]);
+  }
+
 }
