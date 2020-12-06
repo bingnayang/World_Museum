@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MuseumListComponent } from './museum-list/museum-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateMuseumComponent } from './create-museum/create-museum.component';
+import { FormsModule } from '@angular/forms';
  
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CreateMuseumComponent } from './create-museum/create-museum.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
