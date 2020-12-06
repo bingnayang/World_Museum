@@ -17,5 +17,9 @@ export class MuseumService {
   createMuseum(museum: Museum): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,museum);
   }
+
+  getMuseumById(id: number): Observable<Museum>{
+    return this.httpClient.get<Museum>(`${this.baseURL}/${id}`);
+  }
 }
 

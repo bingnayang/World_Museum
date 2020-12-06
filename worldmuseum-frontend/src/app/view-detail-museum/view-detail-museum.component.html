@@ -5,23 +5,24 @@
         <div class="card bg-light mb-3">
             <div class="card-header" style="background-color:#e9ecef;">Website</div>
             <div class="card-body">
-                <a class="card-title">www.museum.com</a>
+                <a class="card-title">{{ museum.website }}</a>
             </div>
         </div>
         <div class="card bg-light mb-3">
             <div class="card-header" style="background-color:#e9ecef;">Address</div>
             <div class="card-body">
-                <h5 class="card-title">www.museum.com</h5>
+                <h5 class="card-title">{{ museum.address }}</h5>
+                <h5 class="card-title">{{ museum.country }}</h5>
             </div>
         </div>
     </div>
     <div class="col-12 col-md-8">
-        <div class="card">
+        <div class="card" style="border: none;">
             <img class="card-img-top"
-                src="https://atlas.etihad.com/wp-content/uploads/2018/02/shutterstock_482978608-e1517931318849-1024x675.jpg"
+                src="{{ museum.image_link }}"
                 alt="Card image cap">
             <div class="card-body text-light" style="background-color: #1F3944;">
-                <h4 class="card-title">Museum Name</h4>
+                <h4 class="card-title">{{ museum.name }}</h4>
             </div>
         </div>
     </div>
