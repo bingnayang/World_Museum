@@ -25,6 +25,9 @@ public class Museum {
 	@Column(name="country")
 	private String country;
 	
+	@Column(name="phone")
+	private String phone;
+	
 	@Column(name="website")
 	private String website;
 	
@@ -34,11 +37,12 @@ public class Museum {
 	// Define Constructors
 	public Museum() {}
 
-	public Museum(String name, String address, String country, String website, String image_link) {
+	public Museum(String name, String address, String country, String website, String phone, String image_link) {
 		this.name = name;
 		this.address = address;
 		this.country = country;
 		this.website = website;
+		this.phone = phone;
 		this.image_link = image_link;
 	}
 
@@ -89,6 +93,14 @@ public class Museum {
 
 	public void setImage_link(String image_link) {
 		this.image_link = image_link;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 

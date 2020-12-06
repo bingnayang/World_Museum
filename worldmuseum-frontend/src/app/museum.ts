@@ -4,5 +4,6 @@ export class Museum {
     address: string;
     country: string;
     website: string;
+    phone: string;
     image_link: string;
 }
