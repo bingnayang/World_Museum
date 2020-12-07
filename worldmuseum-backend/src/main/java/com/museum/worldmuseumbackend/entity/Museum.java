@@ -1,10 +1,17 @@
 package com.museum.worldmuseumbackend.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,6 +40,11 @@ public class Museum {
 	
 	@Column(name="image_link")
 	private String image_link;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="museum_Id")
+	private List<Hour> hours;
+	
 	
 	// Define Constructors
 	public Museum() {}
@@ -103,5 +115,21 @@ public class Museum {
 		this.phone = phone;
 	}
 
+	
+	public List<Hour> getHours() {
+		return hours;
+	}
+
+	public void setHours(List<Hour> hours) {
+		this.hours = hours;
+	}
+	
+	// Add a convenience method
+	public void addHour(Hour theHour) {
+		if(hours == null) {
+			hours = new ArrayList<>();
+		}
+		hours.add(theHour);
+	}
 
 }
