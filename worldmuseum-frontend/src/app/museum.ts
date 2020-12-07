@@ -1,3 +1,5 @@
+import { Hour } from './hour';
+
 export class Museum {
     id: number;
     name: string;
@@ -6,4 +8,5 @@ export class Museum {
     website: string;
     phone: string;
     image_link: string;
+    hours: Hour[];
 }

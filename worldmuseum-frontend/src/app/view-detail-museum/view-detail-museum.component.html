@@ -21,6 +21,12 @@
                 <h5 class="card-title">{{ museum.country }}</h5>
             </div>
         </div>
+        <div class="card bg-light mb-3">
+            <div class="card-header" style="background-color:#e9ecef;">Hours</div>
+            <div class="card-body" *ngFor="let item of museum.hours">
+                <h5 class="card-title">{{ item.day }}: {{ item.hour }}</h5>
+            </div>
+        </div>
     </div>
     <div class="col-12 col-md-8">
         <div class="card" style="border: none;">

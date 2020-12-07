@@ -19,6 +19,7 @@ export class ViewDetailMuseumComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.museumService.getMuseumById(this.id).subscribe(data => {
       this.museum = data;
+      console.log(this.museum);
     },error => console.log(error));
   }
 
