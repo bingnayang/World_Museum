@@ -23,22 +23,34 @@
         </div>
         <div class="card bg-light mb-3">
             <div class="card-header" style="background-color:#e9ecef;">Admission Rates</div>
-            <div class="card-body" *ngFor="let price of museum.admissionRate">
-                <h5 class="card-title">{{ price.guest }}: {{ price.price }}</h5>
+            <div *ngIf="museum.admissionRate.length == 0; else displayAdmissionBlock">
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary" style="background-color: #1F3944; border: none;">Create Admission Rates</button>
+                </div>
             </div>
+            <ng-template #displayAdmissionBlock>
+                <div class="card-body" *ngFor="let price of museum.admissionRate">
+                    <h5 class="card-title">{{ price.guest }}: {{ price.price }}</h5>
+                </div>
+            </ng-template>
         </div>
         <div class="card bg-light mb-3">
             <div class="card-header" style="background-color:#e9ecef;">Hours</div>
-            <div class="card-body" *ngFor="let item of museum.hours">
-                <h5 class="card-title">{{ item.day }}: {{ item.hour }}</h5>
+            <div *ngIf="museum.hours.length == 0; else displayHourBlock">
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary" style="background-color: #1F3944; border: none;">Create Hours</button>
+                </div>
             </div>
+            <ng-template #displayHourBlock>
+                <div class="card-body" *ngFor="let item of museum.hours">
+                    <h5 class="card-title">{{ item.day }}: {{ item.hour }}</h5>
+                </div>
+            </ng-template>
         </div>
     </div>
     <div class="col-12 col-md-8">
         <div class="card" style="border: none;">
-            <img class="card-img-top"
-                src="{{ museum.image_link }}"
-                alt="Card image cap">
+            <img class="card-img-top" src="{{ museum.image_link }}" alt="Card image cap">
             <div class="card-body text-light" style="background-color: #1F3944;">
                 <h4 class="card-title">{{ museum.name }}</h4>
             </div>
