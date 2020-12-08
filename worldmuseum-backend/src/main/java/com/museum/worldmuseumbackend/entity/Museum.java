@@ -20,7 +20,7 @@ public class Museum {
 	// Define Fields
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="museum_id")
 	private int id;
 	
 	@Column(name="name")
@@ -44,6 +44,10 @@ public class Museum {
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="museum_Id")
 	private List<Hour> hours;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="museum_Id")
+	private List<AdmissionRate> admissionRate;
 	
 	
 	// Define Constructors
@@ -124,12 +128,26 @@ public class Museum {
 		this.hours = hours;
 	}
 	
+	public List<AdmissionRate> getAdmissionRate() {
+		return admissionRate;
+	}
+
+	public void setAdmissionRate(List<AdmissionRate> admissionRate) {
+		this.admissionRate = admissionRate;
+	}
+
 	// Add a convenience method
 	public void addHour(Hour theHour) {
 		if(hours == null) {
 			hours = new ArrayList<>();
 		}
 		hours.add(theHour);
+	}
+	public void addAdmissionRate(AdmissionRate theAdmissionRate) {
+		if(admissionRate == null) {
+			admissionRate = new ArrayList<>();
+		}
+		admissionRate.add(theAdmissionRate);
 	}
 
 }

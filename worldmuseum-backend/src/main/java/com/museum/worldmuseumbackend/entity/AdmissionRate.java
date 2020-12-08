@@ -8,27 +8,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="hours")
-public class Hour {
+@Table(name="admission_rates")
+public class AdmissionRate {
 	// Define Fields
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="day")
-	private String day;
+	@Column(name="guest")
+	private String guest;
 	
-	@Column(name="hour")
-	private String hour;
+	@Column(name="price")
+	private String price;
 	
-	public Hour() {
-		
-	}
-
-	public Hour(String day, String hour) {
-		this.day = day;
-		this.hour = hour;
+	public AdmissionRate() {}
+	
+	public AdmissionRate(String guest, String price) {
+		this.guest = guest;
+		this.price = price;
 	}
 
 	public int getId() {
@@ -39,20 +37,20 @@ public class Hour {
 		this.id = id;
 	}
 
-	public String getDay() {
-		return day;
+	public String getGuest() {
+		return guest;
 	}
 
-	public void setDay(String day) {
-		this.day = day;
+	public void setGuest(String guest) {
+		this.guest = guest;
 	}
 
-	public String getHour() {
-		return hour;
+	public String getPrice() {
+		return price;
 	}
 
-	public void setHour(String hour) {
-		this.hour = hour;
+	public void setPrice(String price) {
+		this.price = price;
 	}
 	
 }
