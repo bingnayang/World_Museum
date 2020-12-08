@@ -1,4 +1,5 @@
 import { Hour } from './hour';
+import { Admission } from './admission';
 
 export class Museum {
     id: number;
@@ -9,4 +10,5 @@ export class Museum {
     phone: string;
     image_link: string;
     hours: Hour[];
+    admissionRate: Admission[];
 }

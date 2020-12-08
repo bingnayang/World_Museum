@@ -22,6 +22,12 @@
             </div>
         </div>
         <div class="card bg-light mb-3">
+            <div class="card-header" style="background-color:#e9ecef;">Admission Rates</div>
+            <div class="card-body" *ngFor="let price of museum.admissionRate">
+                <h5 class="card-title">{{ price.guest }}: {{ price.price }}</h5>
+            </div>
+        </div>
+        <div class="card bg-light mb-3">
             <div class="card-header" style="background-color:#e9ecef;">Hours</div>
             <div class="card-body" *ngFor="let item of museum.hours">
                 <h5 class="card-title">{{ item.day }}: {{ item.hour }}</h5>
