@@ -4,9 +4,11 @@ import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.museum.worldmuseumbackend.entity.Hour;
 
+@Repository
 public class HourDAOHibernateImplement implements HourDAO {
 	// Define field for entitymanager
 	private EntityManager entityManager;

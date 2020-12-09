@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.museum.worldmuseumbackend.entity.Hour;
-import com.museum.worldmuseumbackend.entity.Museum;
 import com.museum.worldmuseumbackend.service.HourService;
 
 @RestController
