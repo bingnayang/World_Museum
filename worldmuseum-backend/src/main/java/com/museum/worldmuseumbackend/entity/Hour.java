@@ -16,6 +16,9 @@ public class Hour {
 	@Column(name="id")
 	private int id;
 	
+	@Column(name="museum_id")
+	private int museum_id;
+	
 	@Column(name="day")
 	private String day;
 	
@@ -26,7 +29,8 @@ public class Hour {
 		
 	}
 
-	public Hour(String day, String hour) {
+	public Hour(int museum_id, String day, String hour) {
+		this.museum_id = museum_id;
 		this.day = day;
 		this.hour = hour;
 	}
@@ -53,6 +57,14 @@ public class Hour {
 
 	public void setHour(String hour) {
 		this.hour = hour;
+	}
+
+	public int getMuseum_id() {
+		return museum_id;
+	}
+
+	public void setMuseum_id(int museum_id) {
+		this.museum_id = museum_id;
 	}
 	
 }

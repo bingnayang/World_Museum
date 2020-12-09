@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Museum } from '../museum';
 import { MuseumService } from '../museum.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-detail-museum',
@@ -13,7 +14,7 @@ export class ViewDetailMuseumComponent implements OnInit {
   id: number;
   museum: Museum = new Museum();
 
-  constructor(private museumService: MuseumService, private route: ActivatedRoute) { }
+  constructor(private museumService: MuseumService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -23,6 +24,9 @@ export class ViewDetailMuseumComponent implements OnInit {
     },error => console.log(error));
   }
 
-
+  createHours(id: number){
+    console.log('Museum Id:'+id)
+    this.router.navigate(['set-hour',id]);
+  }
 
 }
