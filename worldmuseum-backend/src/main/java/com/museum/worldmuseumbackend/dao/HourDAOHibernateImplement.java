@@ -49,4 +49,21 @@ public class HourDAOHibernateImplement implements HourDAO {
 		return hours;
 	}
 
+	@Override
+	public List<Hour> findByMuseumId(int museumId) {		
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Create a query
+		// Using native Hibernate API
+		Query<Hour> theQuery = currentSession.createQuery("from Hour where museum_id=:museum_id",Hour.class);
+		theQuery.setParameter("museum_id",museumId);
+		
+		// Execute query and get result list
+		List<Hour> hours = theQuery.getResultList();
+		
+		// Return the result
+		return hours;
+	}
+
 }

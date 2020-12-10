@@ -29,4 +29,9 @@ public class HourServiceImplement implements HourService {
 		return hourDAO.findAll();
 	}
 
+	@Override
+	public List<Hour> findByMuseumId(int museumId) {
+		return hourDAO.findByMuseumId(museumId);
+	}
+
 }
