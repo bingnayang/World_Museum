@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Museum } from '../museum';
-import { MuseumService } from '../museum.service';
+import { MuseumService } from '../services/museum.service';
 import { Router } from '@angular/router';
 
 @Component({

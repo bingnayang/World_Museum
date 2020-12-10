@@ -14,10 +14,4 @@ export class HourService {
   createHours(hour: Hour): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,hour);
   }
-  // getHoursById(id: number): Observable<Hour[]>{
-  //   return this.httpClient.get<Hour[]>(`${this.baseURL}/${id}`);
-  // }
-  // saveUpdateHours(id: number, hours: Hour[]): Observable<Object>{
-  //   return this.httpClient.put(`${this.baseURL}`,hours)
-  // }
 }

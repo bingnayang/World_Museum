@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hour } from '../hour';
 import { Router } from '@angular/router';
-import { HourService } from '../hour.service';
+import { HourService } from '../services/hour.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
