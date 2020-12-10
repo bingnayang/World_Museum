@@ -1,12 +1,16 @@
 package com.museum.worldmuseumbackend.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.museum.worldmuseumbackend.entity.Hour;
+import com.museum.worldmuseumbackend.entity.Museum;
 
 @Repository
 public class HourDAOHibernateImplement implements HourDAO {
@@ -27,6 +31,22 @@ public class HourDAOHibernateImplement implements HourDAO {
 		// Save museum
 		currentSession.saveOrUpdate(theHour);
 
+	}
+
+	@Override
+	public List<Hour> findAll() {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Create a query
+		// Using native Hibernate API
+		Query<Hour> theQuery = currentSession.createQuery("from Hour",Hour.class);
+		
+		// Execute query and get result list
+		List<Hour> hours = theQuery.getResultList();
+		
+		// Return the result
+		return hours;
 	}
 
 }

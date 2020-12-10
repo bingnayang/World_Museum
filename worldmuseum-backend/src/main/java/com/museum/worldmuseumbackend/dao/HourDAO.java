@@ -4,4 +4,5 @@ import com.museum.worldmuseumbackend.entity.Hour;
 
 public interface HourDAO {
 	public void save(Hour theHour);
+	public List<Hour> findAll();
 }

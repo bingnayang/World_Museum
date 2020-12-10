@@ -1,5 +1,7 @@
 package com.museum.worldmuseumbackend.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +26,7 @@ public class Hour {
 	
 	@Column(name="hour")
 	private String hour;
-	
+		
 	public Hour() {
 		
 	}
