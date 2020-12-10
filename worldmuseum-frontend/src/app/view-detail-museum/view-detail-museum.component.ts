@@ -27,6 +27,9 @@ export class ViewDetailMuseumComponent implements OnInit {
   createHours(id: number){
     this.router.navigate(['set-hour',id]);
   }
+  createAdmissionRate(id: number){
+    this.router.navigate(['set-admission-rate',id]);
+  }
   updateHours(id: number){
     this.router.navigate(['set-hour',id]);
   }
