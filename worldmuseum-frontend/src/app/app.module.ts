@@ -9,6 +9,7 @@ import { CreateMuseumComponent } from './create-museum/create-museum.component';
 import { FormsModule } from '@angular/forms';
 import { ViewDetailMuseumComponent } from './view-detail-museum/view-detail-museum.component';
 import { SetHourComponent } from './set-hour/set-hour.component';
+import { UpdateHourComponent } from './update-hour/update-hour.component';
  
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SetHourComponent } from './set-hour/set-hour.component';
     MuseumListComponent,
     CreateMuseumComponent,
     ViewDetailMuseumComponent,
-    SetHourComponent
+    SetHourComponent,
+    UpdateHourComponent
   ],
   imports: [
     BrowserModule,
