@@ -25,7 +25,6 @@ export class ViewDetailMuseumComponent implements OnInit {
   }
 
   createHours(id: number){
-    console.log('Museum Id:'+id)
     this.router.navigate(['set-hour',id]);
   }
   updateHours(id: number){
