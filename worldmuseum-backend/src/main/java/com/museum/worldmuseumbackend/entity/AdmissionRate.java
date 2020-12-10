@@ -16,15 +16,19 @@ public class AdmissionRate {
 	@Column(name="id")
 	private int id;
 	
+	@Column(name="museum_id")
+	private int museum_id;
+	
 	@Column(name="guest")
 	private String guest;
 	
-	@Column(name="price")
+	@Column(name="price") 
 	private String price;
 	
 	public AdmissionRate() {}
 	
-	public AdmissionRate(String guest, String price) {
+	public AdmissionRate(int museum_id, String guest, String price) {
+		this.museum_id = museum_id;
 		this.guest = guest;
 		this.price = price;
 	}
@@ -51,6 +55,14 @@ public class AdmissionRate {
 
 	public void setPrice(String price) {
 		this.price = price;
+	}
+
+	public int getMuseum_id() {
+		return museum_id;
+	}
+
+	public void setMuseum_id(int museum_id) {
+		this.museum_id = museum_id;
 	}
 	
 }
