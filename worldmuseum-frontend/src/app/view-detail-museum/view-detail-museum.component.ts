@@ -13,7 +13,7 @@ export class ViewDetailMuseumComponent implements OnInit {
 
   id: number;
   museum: Museum = new Museum();
-
+  
   constructor(private museumService: MuseumService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,5 +28,7 @@ export class ViewDetailMuseumComponent implements OnInit {
     console.log('Museum Id:'+id)
     this.router.navigate(['set-hour',id]);
   }
-
+  updateHours(id: number){
+    this.router.navigate(['set-hour',id]);
+  }
 }
