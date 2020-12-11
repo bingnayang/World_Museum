@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Admission } from '../admission';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { AdmissionService } from '../services/admission.service';
 
 @Component({
   selector: 'app-set-admission-rate',
@@ -12,7 +14,7 @@ export class SetAdmissionRateComponent implements OnInit {
   admission: Admission[] = [];
   id: number;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private admissionService: AdmissionService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -25,10 +27,23 @@ export class SetAdmissionRateComponent implements OnInit {
         price: ''
       });
     }
+  }
 
+  goToMuseum(){
+    this.router.navigate(['view-detail-museum',this.id]);
   }
 
   onSubmit(){
     console.log(this.admission);
+    this.saveRate();
+  }
+
+  saveRate(){
+    for(var i=0; i < this.typeOfAdmission.length; i++){
+      this.admissionService.createAdmission(this.admission[i]).subscribe(data => {
+        console.log(data);
+      }, error => console.log(error));
+    }
+    this.goToMuseum();
   }
 }

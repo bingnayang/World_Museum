@@ -21,10 +21,16 @@ public class AdmissionRateRESTController {
 	
 	// POST "/rates - add new rates 
 	@PostMapping("/rates")
-	public void saveAdmissionRate(@RequestBody AdmissionRate theRate) {
-		theRate.setId(0);
-		System.out.println(theRate);
-		rateService.save(theRate);
+	public AdmissionRate saveAdmissionRate(@RequestBody AdmissionRate theRate) {
+		try {
+			theRate.setId(0);
+			System.out.println(theRate);
+			rateService.save(theRate);
+		}catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+		return theRate;
 	}
 	
 }
