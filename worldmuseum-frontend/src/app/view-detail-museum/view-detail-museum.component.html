@@ -25,7 +25,8 @@
             <div class="card-header" style="background-color:#e9ecef;">Admission Rates</div>
             <div *ngIf="museum.admissionRate?.length == 0; else displayAdmissionBlock">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary" (click)="createAdmissionRate(museum.id)" style="background-color: #1F3944; border: none;">Create Admission Rates</button>
+                    <button type="button" class="btn btn-primary" (click)="createAdmissionRate(museum.id)"
+                        style="background-color: #1F3944; border: none;">Create Admission Rates</button>
                 </div>
             </div>
             <ng-template #displayAdmissionBlock>
@@ -41,7 +42,8 @@
             <div class="card-header" style="background-color:#e9ecef;">Hours</div>
             <div *ngIf="museum.hours?.length == 0; else displayHourBlock">
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary" (click)="createHours(museum.id)" style="background-color: #1F3944; border: none;">Create Hours</button>
+                    <button type="button" class="btn btn-primary" (click)="createHours(museum.id)"
+                        style="background-color: #1F3944; border: none;">Create Hours</button>
                 </div>
             </div>
             <ng-template #displayHourBlock>
@@ -49,7 +51,8 @@
                     <h5 class="card-title">{{ item.day }}: {{ item.hour }}</h5>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-info btn-block" (click)="updateHours(museum.id)">Update Hours</button>
+                    <button type="button" class="btn btn-info btn-block" (click)="updateHours(museum.id)">Update
+                        Hours</button>
                 </div>
             </ng-template>
         </div>
@@ -61,5 +64,24 @@
                 <h4 class="card-title">{{ museum.name }}</h4>
             </div>
         </div>
+        <br>
+
+        <div class="card">
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="col">
+                        <textarea rows="3" class="form-control" placeholder="Write Some Comments" [(ngModel)]="commentInput.comment" id="comment" name="comment"
+                            style="resize: none; border-radius: 0;"></textarea>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary"
+                            style="height: 100%; margin-left: -10px; border-radius: 0; background-color: #1F3944;">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr>
+
+
     </div>
 </div>
