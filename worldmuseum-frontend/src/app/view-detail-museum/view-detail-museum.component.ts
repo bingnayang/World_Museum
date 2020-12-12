@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Museum } from '../museum';
 import { MuseumService } from '../services/museum.service';
 import { Router } from '@angular/router';
+import { Comment } from '../comment';
 
 @Component({
   selector: 'app-view-detail-museum',
@@ -13,6 +14,7 @@ export class ViewDetailMuseumComponent implements OnInit {
 
   id: number;
   museum: Museum = new Museum();
+  commentInput: Comment = new Comment();
   
   constructor(private museumService: MuseumService, private route: ActivatedRoute, private router: Router) { }
 
@@ -22,6 +24,7 @@ export class ViewDetailMuseumComponent implements OnInit {
       this.museum = data;
       console.log(this.museum);
     },error => console.log(error));
+
   }
 
   createHours(id: number){
@@ -33,4 +36,8 @@ export class ViewDetailMuseumComponent implements OnInit {
   updateHours(id: number){
     this.router.navigate(['set-hour',id]);
   }
+  onSubmit(){
+    console.log(this.commentInput);
+  }
+
 }
