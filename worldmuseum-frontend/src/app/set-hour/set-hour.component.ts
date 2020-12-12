@@ -13,6 +13,7 @@ export class SetHourComponent implements OnInit {
   public namesOfDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   hours: Hour[];
   id: number;
+  updateCheck: boolean;
 
   constructor(private hourService: HourService, private router: Router, private route: ActivatedRoute) { }
 
@@ -32,8 +33,13 @@ export class SetHourComponent implements OnInit {
             hour: ''
           });
         }
+        this.updateCheck = false;
+      } else {
+        this.updateCheck = true;
       }
 
+      console.log("Update Check: ")
+      console.log(this.updateCheck)
     }, error => console.log(error));
 
   }
@@ -43,19 +49,32 @@ export class SetHourComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.hours);
-    this.saveHour();
+    if (this.updateCheck) {
+      console.log("update hour method")
+      this.updateHour();
+    } else {
+      console.log("create hour method")
+      this.saveHour();
+    }
+
   }
 
   saveHour() {
     for (var i = 0; i <= 6; i++) {
-      // this.hourService.createHours(this.hours[i]).subscribe(data => {
-      //   console.log('saveHour: ' + data);
-      // }, error => console.log(error));
-      this.hourService.setHours(this.id,this.hours[i]).subscribe(data => {
-        console.log('saveHour: ' + data);
+      this.hourService.createHours(this.hours[i]).subscribe(data => {
+        console.log(data);
       }, error => console.log(error));
     }
     this.goToMuseum();
   }
+
+  updateHour() {
+    for (var i = 0; i <= 6; i++) {
+      this.hourService.updateHours(this.hours[i]).subscribe(data => {
+        console.log(data);
+      }, error => console.log(error));
+    }
+    this.goToMuseum();
+  }
+
 }
