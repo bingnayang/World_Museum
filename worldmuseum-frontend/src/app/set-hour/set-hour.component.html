@@ -1,13 +1,12 @@
 <h2 class="text-dark">Set Hour</h2>
-<form #hourForm="ngForm" class="container mt-3" (ngSubmit)="onSubmit()">
-
-    <div *ngFor="let hour of hours">
-            <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">{{ hour.day }}</label>
-                <div class="col-sm-10">
-                <input type="text" class="form-control" [(ngModel)]="hour.hour" id="name" name="hour"/>
-                </div>
+<form class="container mt-3" (ngSubmit)="onSubmit()">
+    <div *ngFor="let hour of hours; index as i">
+        <div class="form-group row">
+            <label for="day" class="col-sm-2 col-form-label">{{ hour.day }}</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="hour.hour" id="hour" name="hour{{i}}">
             </div>
+        </div>
     </div>
     <input type="submit" class="btn btn-success" value="Submit" />
 </form>
