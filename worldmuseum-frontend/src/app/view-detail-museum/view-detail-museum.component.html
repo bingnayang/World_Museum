@@ -70,7 +70,8 @@
             <form (ngSubmit)="onSubmit()">
                 <div class="form-row">
                     <div class="col">
-                        <textarea rows="3" class="form-control" placeholder="Write Some Comments" [(ngModel)]="commentInput.comment" id="comment" name="comment"
+                        <textarea rows="3" class="form-control" placeholder="Write Some Comments"
+                            [(ngModel)]="commentInput.comment" id="comment" name="comment"
                             style="resize: none; border-radius: 0;"></textarea>
                     </div>
                     <div class="col-auto">
@@ -81,7 +82,16 @@
             </form>
         </div>
         <hr>
-
+        <div class="list-group">
+            <div *ngFor="let comment of commentList">
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <p class="mb-1">{{ comment.comment }}</p>
+                    <div class="d-flex w-100 justify-content-between">
+                        <small>author name</small> <small>date</small>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>

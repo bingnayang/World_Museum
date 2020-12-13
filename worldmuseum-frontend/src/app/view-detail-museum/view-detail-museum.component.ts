@@ -4,6 +4,7 @@ import { Museum } from '../museum';
 import { MuseumService } from '../services/museum.service';
 import { Router } from '@angular/router';
 import { Comment } from '../comment';
+import { CommentService } from '../services/comment.service';
 
 @Component({
   selector: 'app-view-detail-museum',
@@ -15,8 +16,9 @@ export class ViewDetailMuseumComponent implements OnInit {
   id: number;
   museum: Museum = new Museum();
   commentInput: Comment = new Comment();
+  commentList: Comment[];
   
-  constructor(private museumService: MuseumService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private museumService: MuseumService, private commentService: CommentService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -25,6 +27,10 @@ export class ViewDetailMuseumComponent implements OnInit {
       console.log(this.museum);
     },error => console.log(error));
 
+    this.commentService.getCommentById(this.id).subscribe(data => {
+      this.commentList = data;
+      console.log(data);
+    },error => console.log(error));
   }
 
   createHours(id: number){
