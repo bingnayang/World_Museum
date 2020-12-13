@@ -21,11 +21,15 @@ public class Comment {
 	@Column(name="comment")
 	private String comment;
 	
+	@Column(name="date")
+	private String date;
+	
 	public Comment() {}
 
-	public Comment(int museum_id, String comment) {
+	public Comment(int museum_id, String comment, String date) {
 		this.museum_id = museum_id;
 		this.comment = comment;
+		this.date = date;
 	}
 
 	public int getId() {
@@ -51,6 +55,13 @@ public class Comment {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 	
 }
