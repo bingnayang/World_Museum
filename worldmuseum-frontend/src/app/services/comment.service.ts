@@ -13,4 +13,7 @@ export class CommentService {
   getCommentById(id: number): Observable<Comment[]>{
     return this.httpClient.get<Comment[]>(`${this.baseURL}/${id}`);
   }
+  createComment(comment: Comment){
+    return this.httpClient.post<Comment>(`${this.baseURL}`,comment);
+  }
 }

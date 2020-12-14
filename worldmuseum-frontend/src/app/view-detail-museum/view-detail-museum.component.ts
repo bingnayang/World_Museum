@@ -5,6 +5,7 @@ import { MuseumService } from '../services/museum.service';
 import { Router } from '@angular/router';
 import { Comment } from '../comment';
 import { CommentService } from '../services/comment.service';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-view-detail-museum',
@@ -12,6 +13,8 @@ import { CommentService } from '../services/comment.service';
   styleUrls: ['./view-detail-museum.component.css']
 })
 export class ViewDetailMuseumComponent implements OnInit {
+  postDate: Date = new Date();
+  temp = formatDate(this.postDate,'MM-dd-yyyy','en-US');
 
   id: number;
   museum: Museum = new Museum();
@@ -24,12 +27,10 @@ export class ViewDetailMuseumComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.museumService.getMuseumById(this.id).subscribe(data => {
       this.museum = data;
-      console.log(this.museum);
     },error => console.log(error));
 
     this.commentService.getCommentById(this.id).subscribe(data => {
       this.commentList = data;
-      console.log(data);
     },error => console.log(error));
   }
 
@@ -43,7 +44,15 @@ export class ViewDetailMuseumComponent implements OnInit {
     this.router.navigate(['set-hour',id]);
   }
   onSubmit(){
-    console.log(this.commentInput);
+    this.saveComment();
   }
+  saveComment(){
+    this.commentInput.date = this.temp;
+    this.commentInput.museum_id = this.id;
 
+    this.commentService.createComment(this.commentInput).subscribe(data => {
+      console.log(data);
+      this.ngOnInit();
+    }, error => console.log(error));
+  }
 }
