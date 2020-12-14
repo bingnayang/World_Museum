@@ -39,6 +39,16 @@ public class CommentDAOImplement implements CommentDAO {
 		// Return the result
 		return comments;
 	}
+
+	@Override
+	public void save(Comment theComment) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		// Save rates
+		currentSession.saveOrUpdate(theComment);
+		
+	}
 	
 	
 }

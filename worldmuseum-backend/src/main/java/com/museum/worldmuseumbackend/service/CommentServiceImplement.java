@@ -23,6 +23,12 @@ public class CommentServiceImplement implements CommentService {
 	public List<Comment> findByMuseumId(int museumId) {
 		return commentDAO.findByMuseumId(museumId);
 	}
+
+	@Override
+	@Transactional
+	public void save(Comment theComment) {
+		commentDAO.save(theComment);
+	}
 	
 	
 }

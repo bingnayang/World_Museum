@@ -8,4 +8,6 @@ public interface CommentService {
 
 	List<Comment> findByMuseumId(int museumId);
 
+	public void save(Comment theComment);
+
 }

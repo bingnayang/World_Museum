@@ -8,4 +8,6 @@ public interface CommentDAO {
 
 	List<Comment> findByMuseumId(int museumId);
 
+	void save(Comment theComment);
+
 }

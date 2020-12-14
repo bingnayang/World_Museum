@@ -49,6 +49,10 @@ public class Museum {
 	@JoinColumn(name="museum_Id")
 	private List<AdmissionRate> admissionRate;
 	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="museum_Id")
+	private List<Comment> comments;
+	
 	
 	// Define Constructors
 	public Museum() {}
@@ -136,6 +140,14 @@ public class Museum {
 		this.admissionRate = admissionRate;
 	}
 
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 	// Add a convenience method
 	public void addHour(Hour theHour) {
 		if(hours == null) {
@@ -148,6 +160,12 @@ public class Museum {
 			admissionRate = new ArrayList<>();
 		}
 		admissionRate.add(theAdmissionRate);
+	}
+	public void addComment(Comment theComment) {
+		if(comments == null) {
+			comments = new ArrayList<>();
+		}
+		comments.add(theComment);
 	}
 
 }
