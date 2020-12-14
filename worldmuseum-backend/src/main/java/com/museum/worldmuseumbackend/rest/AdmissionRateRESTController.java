@@ -2,11 +2,13 @@ package com.museum.worldmuseumbackend.rest;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.museum.worldmuseumbackend.entity.AdmissionRate;
+import com.museum.worldmuseumbackend.entity.Hour;
 import com.museum.worldmuseumbackend.service.AdmissionRateService;
 
 @RestController
@@ -30,6 +32,13 @@ public class AdmissionRateRESTController {
 			System.out.println(e);
 			return null;
 		}
+		return theRate;
+	}
+	
+	// PUT "/rates" - update existing rates
+	@PutMapping("/rates")
+	public AdmissionRate updateAdmissionRate(@RequestBody AdmissionRate theRate) {
+		rateService.save(theRate);
 		return theRate;
 	}
 	
