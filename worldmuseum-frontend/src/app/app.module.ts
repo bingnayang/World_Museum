@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { ViewDetailMuseumComponent } from './view-detail-museum/view-detail-museum.component';
 import { SetHourComponent } from './set-hour/set-hour.component';
 import { SetAdmissionRateComponent } from './set-admission-rate/set-admission-rate.component';
-import { LoginComponent } from './login/login.component';
  
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { LoginComponent } from './login/login.component';
     CreateMuseumComponent,
     ViewDetailMuseumComponent,
     SetHourComponent,
-    SetAdmissionRateComponent,
-    LoginComponent
+    SetAdmissionRateComponent
   ],
   imports: [
     BrowserModule,
