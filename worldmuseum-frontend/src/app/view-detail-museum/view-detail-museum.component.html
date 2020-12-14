@@ -34,7 +34,7 @@
                     <h5 class="card-title">{{ price.guest }}: {{ price.price }}</h5>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="btn btn-info btn-block">Update Admission Rates</button>
+                    <button type="button" class="btn btn-info btn-block" (click)="updateRates(museum.id)">Update Admission Rates</button>
                 </div>
             </ng-template>
         </div>

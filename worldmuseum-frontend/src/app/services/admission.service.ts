@@ -14,5 +14,12 @@ export class AdmissionService {
   createAdmission(rate: Admission): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,rate);
   }
+
+  getRatesById(id: number): Observable<Admission[]>{
+    return this.httpClient.get<Admission[]>(`${this.baseURL}/${id}`);
+  }
   
+  updateRates(rate: Admission): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}`,rate)
+  }
 }
