@@ -53,6 +53,9 @@ public class Museum {
 	@JoinColumn(name="museum_Id")
 	private List<Comment> comments;
 	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="museum_Id")
+	private List<Image> images;
 	
 	// Define Constructors
 	public Museum() {}
@@ -168,4 +171,12 @@ public class Museum {
 		comments.add(theComment);
 	}
 
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+	
 }
