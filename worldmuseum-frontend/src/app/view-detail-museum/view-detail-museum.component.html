@@ -64,10 +64,37 @@
                 <h4 class="card-title">{{ museum.name }}</h4>
             </div>
         </div>
-        <br>
-
+        <h3>Images:</h3>
         <div class="card">
-            <form (ngSubmit)="onSubmit()">
+            <form (ngSubmit)="onImageSubmit()">
+                <div class="form-row">
+                    <div class="col">
+                        <input class="form-control" placeholder="Add image url... for now"
+                            [(ngModel)]="imageURL.image_url" id="image_url" name="image_url"
+                            style="resize: none; border-radius: 0;">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary"
+                            style="margin-left: -10px; border-radius: 0; background-color: #1F3944;">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr>
+        <div class="d-flex flex-wrap">
+            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+        </div>
+        <br>
+        <h3>Comments:</h3>
+        <div class="card">
+            <form (ngSubmit)="onCommentSubmit()">
                 <div class="form-row">
                     <div class="col">
                         <textarea rows="3" class="form-control" placeholder="Write Some Comments"
