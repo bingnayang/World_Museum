@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Comment } from '../comment';
 import { CommentService } from '../services/comment.service';
 import { formatDate } from '@angular/common';
+import { Image } from '../image';
+import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-view-detail-museum',
@@ -20,8 +22,11 @@ export class ViewDetailMuseumComponent implements OnInit {
   museum: Museum = new Museum();
   commentInput: Comment = new Comment();
   commentList: Comment[];
+
+  imageURL: Image = new Image();
+  imageList: Image[];
   
-  constructor(private museumService: MuseumService, private commentService: CommentService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private museumService: MuseumService,private imageService: ImageService, private commentService: CommentService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -33,20 +38,22 @@ export class ViewDetailMuseumComponent implements OnInit {
       this.commentList = data;
     },error => console.log(error));
   }
-
+  // Create Hour and Update Hour
   createHours(id: number){
     this.router.navigate(['set-hour',id]);
-  }
-  createAdmissionRate(id: number){
-    this.router.navigate(['set-admission-rate',id]);
   }
   updateHours(id: number){
     this.router.navigate(['set-hour',id]);
   }
+  // Create Rate and update Rate
+  createAdmissionRate(id: number){
+    this.router.navigate(['set-admission-rate',id]);
+  }
   updateRates(id: number){
     this.router.navigate(['set-admission-rate',id]);
   }
-  onSubmit(){
+  // Add Comment
+  onCommentSubmit(){
     this.saveComment();
   }
   saveComment(){
@@ -54,6 +61,18 @@ export class ViewDetailMuseumComponent implements OnInit {
     this.commentInput.museum_id = this.id;
 
     this.commentService.createComment(this.commentInput).subscribe(data => {
+      console.log(data);
+      this.ngOnInit();
+    }, error => console.log(error));
+  }
+  // Save Image
+  onImageSubmit(){
+    this.saveImage();
+  }
+  saveImage(){
+    this.imageURL.date = this.temp;
+    // Upload the image url to database 
+    this.imageService.uploadImage(this.imageURL).subscribe(data => {
       console.log(data);
       this.ngOnInit();
     }, error => console.log(error));
