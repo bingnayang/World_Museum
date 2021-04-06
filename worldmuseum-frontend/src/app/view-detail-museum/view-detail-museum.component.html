@@ -82,14 +82,9 @@
         </div>
         <hr>
         <div class="d-flex flex-wrap">
-            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
-            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
-            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
-            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
-            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
-            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
-            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
-            <div class="p-2"><img src="https://i.stack.imgur.com/y9DpT.jpg" alt="" style="height: 150px; width: 172px;"></div>
+            <div class="p-2" *ngFor="let image of imageList">
+                <img src="{{ image.image }}" alt="" style="height: 150px; width: 172px;">
+            </div>
         </div>
         <br>
         <h3>Comments:</h3>
