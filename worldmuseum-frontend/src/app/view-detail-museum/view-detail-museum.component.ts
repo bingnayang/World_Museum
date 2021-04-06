@@ -33,9 +33,13 @@ export class ViewDetailMuseumComponent implements OnInit {
     this.museumService.getMuseumById(this.id).subscribe(data => {
       this.museum = data;
     },error => console.log(error));
-
+    // Get comment list
     this.commentService.getCommentById(this.id).subscribe(data => {
       this.commentList = data;
+    },error => console.log(error));
+    // Get image list
+    this.imageService.getImageByMuseumId(this.id).subscribe(data => {
+      this.imageList = data;
     },error => console.log(error));
   }
   // Create Hour and Update Hour
@@ -71,6 +75,7 @@ export class ViewDetailMuseumComponent implements OnInit {
   }
   saveImage(){
     this.imageURL.date = this.temp;
+    this.imageURL.museum_id = this.id;
     // Upload the image url to database 
     this.imageService.uploadImage(this.imageURL).subscribe(data => {
       console.log(data);
