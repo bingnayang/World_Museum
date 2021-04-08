@@ -26,3 +26,4 @@ This application using Spring Boot and Angular.
 ![home](https://user-images.githubusercontent.com/17914251/113364670-21319200-9322-11eb-886e-9a976d4ffff4.png)
 * Museum Detail Page
 * ![detail-page](https://user-images.githubusercontent.com/17914251/113364672-21319200-9322-11eb-88e5-34956f80542e.png)
+* ![DetailPage2](https://user-images.githubusercontent.com/17914251/114049917-d8b23100-9859-11eb-8e19-fdd3bd7970ae.png)
